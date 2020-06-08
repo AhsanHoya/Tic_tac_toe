@@ -15,6 +15,7 @@ grid = [[0,0,0],[0,0,0],[0,0,0]]
 
 
 def print_board(board):
+    """  """
     for i in board:
         for j in i:
             print (j, end=" ")
@@ -40,7 +41,7 @@ def take_turn(turn):
         take_turn(turn)
         return
     grid[x][y] = turn
-
+    
 def check_win(turn):
     """
     if one cell and the one under it and the one under it are the same, then the player wins.
@@ -54,36 +55,35 @@ def check_win(turn):
         if grid[x][0] == turn:
             if grid[x][1] == turn:
                 if grid[x][2] == turn:
-                    # WIN
-                    pass
+               
+                    return True
 
 
     for y in range(3): # horz
         if grid[0][y] == turn:
             if grid[1][y] == turn:
                 if grid[2][y] == turn:
-                    # WIN
-                    pass
+                    return True
+    
     #diagonals
     for x in range(3):
-        if grid[0][0] [1][1] [2][1] == turn
-            if grid[0][2] [1][1] [2][0] == turn
-                #WIN
-                pass
-    print turn wins        
+        if grid[0][0] == turn and grid[1][1] == turn and grid[2][2] == turn:
+            return True
+        if grid[0][2] == turn and grid[1][1] == turn and grid[2][0] == turn:
+            return True
 
+def win(turn):
+    print("Congratulations Player", turn, "Wins!!!")
 
 def main():
     print_board(grid)
-    for _ in range(9):
-        take_turn(1)
+    for t in range(9):
+        take_turn((t%2)+1)
         print_board(grid)
-        check_win()
+        if check_win((t%2)+1):
+            win((t%2)+1)
+            return
+    print("DRAW")
         
-        take_turn(2)
-        print_board(grid)
-        check_win()
     
-
-
-main(
+main()
