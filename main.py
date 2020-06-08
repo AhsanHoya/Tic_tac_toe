@@ -65,7 +65,14 @@ def check_win(turn):
                     # WIN
                     pass
     #diagonals
-    if 
+    for x in range(3):
+        if grid[0][0] [1][1] [2][1] == turn
+            if grid[0][2] [1][1] [2][0] == turn
+                #WIN
+                pass
+    print turn wins        
+
+
 def main():
     print_board(grid)
     for _ in range(9):
